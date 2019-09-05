@@ -10,22 +10,27 @@ spec:
     containers:
     - name: tutorial-container
       type: k8s.ContainerSpec
-      containerName: tutorial
+      containerName: tutorial-container
       image: lyhsoft/tutorial:113
+      ports:
+      - name: tutorial-container-port
+        type: k8s.ContainerPortSpec
+        containerPort: "1234"
+    labels:
+      app: tutorial
     deploymentName: tutorial-deployment
     replicasCount: "1"
     matchLabels:
       app: tutorial
   - name: tutorial-service
     type: k8s.ServiceSpec
-    serviceName: tutorial
-    serviceType: NodePort
+    serviceName: tutorial-service
+    serviceType: LoadBalancer
     selectors:
       app: tutorial
     ports:
-    - name: tutorial-port
+    - name: tutorial-service-port
       type: k8s.ServicePortSpec
-      portName: tutorial-service
-      nodePort: "31001"
+      portName: http
       port: "80"
       targetPort: "1234"
