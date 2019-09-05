@@ -1,3 +1,9 @@
+# Para probar esta aplicación en el cluster local, ejecutar
+# kubectl port-forward nginx-7bb7cd8db5-ktpch 6789:1234
+# Se podrá acceder deste localhost:6789
+# Para probar esta aplicación en el cluster GCP, ejecutar
+# kubectl get service tutorial-service -o yaml | grep ip
+# para obtener la IP desde la que hacer la consulta
 ---
 apiVersion: xl-deploy/v1
 kind: Applications
