@@ -12,7 +12,7 @@ spec:
       type: k8s.ContainerSpec
       containerName: tutorial
       image: lyhsoft/tutorial:113
-    deploymentName: tutorial
+    deploymentName: tutorial-deployment
     replicasCount: "1"
     matchLabels:
       app: tutorial
