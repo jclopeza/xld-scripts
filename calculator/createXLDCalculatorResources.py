@@ -38,6 +38,13 @@ def createOrUpdateEnvironment(env):
     environmentName = "Environments/application-calculator/application-calculator-{0}/application-calculator-{0}".format(env)
     dictionaryName = "Environments/dictionaries-calculator/dictionary-application-calculator-{0}".format(env)
     dictionaries = [dictionaryName]
+    requiresOkTestManager = False
+    requiresOkReleaseManager = False
+    if env == "pre":
+        requiresOkTestManager = True
+    if env == "pro":
+        requiresOkTestManager = True
+        requiresOkReleaseManager = True
     myContainers = [
         "Infrastructure/UnixHosts/calculator-{0}/axis2".format(env),
         "Infrastructure/UnixHosts/calculator-{0}/tomcat/virutal-host-calculator".format(env),
@@ -45,13 +52,15 @@ def createOrUpdateEnvironment(env):
         "Infrastructure/UnixHosts/calculator-{0}/mysql-cli".format(env)
     ]
     if not repository.exists(environmentName):
-        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'dictionaries': dictionaries})
+        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'dictionaries': dictionaries, 'requiresOkTestManager': requiresOkTestManager, 'requiresOkReleaseManager': requiresOkReleaseManager})
         repository.create(myEnvironment)
         print("Environment {0} created".format(environmentName))
     else:
         myEnvironment = repository.read(environmentName)
         myEnvironment.members = myContainers
         myEnvironment.dictionaries = dictionaries
+        myEnvironment.requiresOkTestManager = requiresOkTestManager
+        myEnvironment.requiresOkReleaseManager = requiresOkReleaseManager
         repository.update(myEnvironment)
         print("Environment {0} updated".format(environmentName))
 
@@ -130,3 +139,26 @@ createResource("Applications/Applications", "core.Directory", None)
 createResource("Applications/Applications/application-calculator", "core.Directory", None)
 createResource("Applications/Applications/application-calculator/front", "udm.Application", None)
 createResource("Applications/Applications/application-calculator/webservices", "udm.Application", None)
+
+#  / ___|___  _ __  / _(_) __ _ _   _ _ __ __ _| |_(_) ___  _ __  
+# | |   / _ \| '_ \| |_| |/ _` | | | | '__/ _` | __| |/ _ \| '_ \ 
+# | |__| (_) | | | |  _| | (_| | |_| | | | (_| | |_| | (_) | | | |
+#  \____\___/|_| |_|_| |_|\__, |\__,_|_|  \__,_|\__|_|\___/|_| |_|
+
+def getEnvironments(application):
+    environments = []
+    for env in ['dev', 'pre', 'pro']:
+        environmentName = "Environments/application-{0}/application-{0}-{1}/application-{0}-{1}".format(application, env)
+        environments = environments + [environmentName]
+    return environments
+
+# Creamos el pipeline
+createResource("Configuration/pipeline-calculator", "release.DeploymentPipeline", {'pipeline': getEnvironments('calculator')})
+
+# Y lo asociamos
+front = repository.read("Applications/Applications/application-calculator/front")
+webservices = repository.read("Applications/Applications/application-calculator/webservices")
+front.pipeline = "Configuration/pipeline-calculator"
+webservices.pipeline = "Configuration/pipeline-calculator"
+repository.update(front)
+repository.update(webservices)
