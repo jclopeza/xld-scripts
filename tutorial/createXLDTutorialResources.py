@@ -1,6 +1,9 @@
-# Este script se invoca de forma remota para crear la infraestructura de la aplicación de Calculadora
+# Este script se invoca de forma remota para crear la infraestructura de la aplicación de Tutorial
 # La invocación se debe realizar de la siguiente forma:
-# ./cli.sh -username admin -password ***** -f /home/jcla/Projects/xld-scripts/tutorial/createXLDTutorialResources.py
+# ./cli.sh -f /home/jcla/Projects/xld-scripts/tutorial/createXLDTutorialResources.py
+# El usuario y la password están en el fichero /opt/xebialabs/xl-deploy-9.0.3-cli/conf/deployit.conf con el siguiente contenido
+# cli.username=admin
+# cli.password=password      <- la password se modifica la primera vez que ejecutemos el cli
 
 def createResource(name, type, props):
     if not repository.exists(name):
@@ -25,8 +28,18 @@ def createOrUpdateEnvironment(env):
     myContainers = [
         "Infrastructure/K8s/cluster-k8s-local/ns-tutorial-{0}".format(env)
     ]
+    # Calculamos los triggers
+    if env == "dev":
+        triggerEnvironmentName = "Development"
+    elif env == "pre":
+        triggerEnvironmentName = "Preproduction"
+    else:
+        triggerEnvironmentName = "Production"
+    triggerFailed = "Configuration/Environments/{0}/Triggers/FailedDeploymentTrigger".format(triggerEnvironmentName)
+    triggerSuccessful = "Configuration/Environments/{0}/Triggers/SuccessfulDeploymentTrigger".format(triggerEnvironmentName)
+    triggers = [triggerFailed, triggerSuccessful]
     if not repository.exists(environmentName):
-        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'requiresOkTestManager': requiresOkTestManager, 'requiresOkReleaseManager': requiresOkReleaseManager})
+        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'requiresOkTestManager': requiresOkTestManager, 'requiresOkReleaseManager': requiresOkReleaseManager, 'triggers': triggers})
         repository.create(myEnvironment)
         print("Environment {0} created".format(environmentName))
     else:
@@ -34,6 +47,7 @@ def createOrUpdateEnvironment(env):
         myEnvironment.members = myContainers
         myEnvironment.requiresOkTestManager = requiresOkTestManager
         myEnvironment.requiresOkReleaseManager = requiresOkReleaseManager
+        myEnvironment.triggers = triggers
         repository.update(myEnvironment)
         print("Environment {0} updated".format(environmentName))
 

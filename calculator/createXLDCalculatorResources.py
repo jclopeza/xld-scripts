@@ -1,6 +1,9 @@
 # Este script se invoca de forma remota para crear la infraestructura de la aplicación de Calculadora
 # La invocación se debe realizar de la siguiente forma:
-# ./cli.sh -username admin -password ***** -f /home/jcla/Projects/xld-scripts/calculator/createXLDCalculatorResources.py
+# ./cli.sh -f /home/jcla/Projects/xld-scripts/calculator/createXLDCalculatorResources.py
+# El usuario y la password están en el fichero /opt/xebialabs/xl-deploy-9.0.3-cli/conf/deployit.conf con el siguiente contenido
+# cli.username=admin
+# cli.password=password      <- la password se modifica la primera vez que ejecutemos el cli
 
 def createResource(name, type, props):
     if not repository.exists(name):
@@ -51,8 +54,18 @@ def createOrUpdateEnvironment(env):
         "Infrastructure/UnixHosts/calculator-{0}/smokeTest".format(env),
         "Infrastructure/UnixHosts/calculator-{0}/mysql-cli".format(env)
     ]
+    # Calculamos los triggers
+    if env == "dev":
+        triggerEnvironmentName = "Development"
+    elif env == "pre":
+        triggerEnvironmentName = "Preproduction"
+    else:
+        triggerEnvironmentName = "Production"
+    triggerFailed = "Configuration/Environments/{0}/Triggers/FailedDeploymentTrigger".format(triggerEnvironmentName)
+    triggerSuccessful = "Configuration/Environments/{0}/Triggers/SuccessfulDeploymentTrigger".format(triggerEnvironmentName)
+    triggers = [triggerFailed, triggerSuccessful]
     if not repository.exists(environmentName):
-        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'dictionaries': dictionaries, 'requiresOkTestManager': requiresOkTestManager, 'requiresOkReleaseManager': requiresOkReleaseManager})
+        myEnvironment = factory.configurationItem(environmentName, 'udm.Environment', {'members': myContainers, 'dictionaries': dictionaries, 'requiresOkTestManager': requiresOkTestManager, 'requiresOkReleaseManager': requiresOkReleaseManager, 'triggers': triggers})
         repository.create(myEnvironment)
         print("Environment {0} created".format(environmentName))
     else:
@@ -61,6 +74,7 @@ def createOrUpdateEnvironment(env):
         myEnvironment.dictionaries = dictionaries
         myEnvironment.requiresOkTestManager = requiresOkTestManager
         myEnvironment.requiresOkReleaseManager = requiresOkReleaseManager
+        myEnvironment.triggers = triggers
         repository.update(myEnvironment)
         print("Environment {0} updated".format(environmentName))
 
