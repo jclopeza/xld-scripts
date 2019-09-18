@@ -8,7 +8,14 @@
 apiVersion: xl-deploy/v1
 kind: Applications
 spec:
-- name: Applications/Applications/application-tutorial/tutorial/1.0.0
+- name: Applications/Applications
+  type: core.Directory
+- name: Applications/Applications/application-tutorial
+  type: core.Directory
+- name: Applications/Applications/application-tutorial/tutorial
+  type: udm.Application
+
+- name: Applications/Applications/application-tutorial/tutorial/1.0.0-B1
   type: udm.DeploymentPackage
   deployables:
   - name: tutorial-deployment
@@ -31,12 +38,11 @@ spec:
   - name: tutorial-service
     type: k8s.ServiceSpec
     serviceName: tutorial-service
-    serviceType: LoadBalancer
+    serviceType: NodePort
     selectors:
       app: tutorial
     ports:
     - name: tutorial-service-port
       type: k8s.ServicePortSpec
-      portName: http
       port: "80"
       targetPort: "1234"
