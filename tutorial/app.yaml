@@ -24,7 +24,7 @@ spec:
     - name: tutorial-container
       type: k8s.ContainerSpec
       containerName: tutorial-container
-      image: lyhsoft/tutorial:113
+      image: lyhsoft/tutorial:1
       ports:
       - name: tutorial-container-port
         type: k8s.ContainerPortSpec
