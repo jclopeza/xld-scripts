@@ -118,7 +118,6 @@ spec:
     - name: result-port
       type: k8s.ServicePortSpec
       portName: result-service
-      nodePort: "31001"
       port: "5001"
       targetPort: "80"
   - name: vote-service
@@ -131,7 +130,6 @@ spec:
     - name: vote-port
       type: k8s.ServicePortSpec
       portName: vote-service
-      nodePort: "31000"
       port: "5000"
       targetPort: "80"
 
