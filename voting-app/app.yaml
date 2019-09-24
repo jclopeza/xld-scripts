@@ -111,7 +111,7 @@ spec:
   - name: result-service
     type: k8s.ServiceSpec
     serviceName: result
-    serviceType: NodePort
+    serviceType: ClusterIP
     selectors:
       app: result
     ports:
@@ -124,7 +124,7 @@ spec:
   - name: vote-service
     type: k8s.ServiceSpec
     serviceName: vote
-    serviceType: NodePort
+    serviceType: ClusterIP
     selectors:
       app: vote
     ports:
