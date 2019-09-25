@@ -38,7 +38,7 @@ spec:
   - name: tutorial-service
     type: k8s.ServiceSpec
     serviceName: tutorial-service
-    serviceType: NodePort
+    serviceType: ClusterIP
     selectors:
       app: tutorial
     ports:
