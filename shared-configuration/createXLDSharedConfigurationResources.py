@@ -1,7 +1,7 @@
 # Este script se invoca de forma remota para crear los recursos compartidos
 # La invocación se debe realizar de la siguiente forma:
 # ./cli.sh -f /home/jcla/Projects/xld-scripts/shared-configuration/createXLDSharedConfigurationResources.py
-# El usuario y la password están en el fichero /opt/xebialabs/xl-deploy-9.0.3-cli/conf/deployit.conf con el siguiente contenido
+# El usuario y la password están en el fichero /opt/xebialabs/xl-deploy-9.0.5-cli/conf/deployit.conf con el siguiente contenido
 # cli.username=admin
 # cli.password=password      <- la password se modifica la primera vez que ejecutemos el cli
 
