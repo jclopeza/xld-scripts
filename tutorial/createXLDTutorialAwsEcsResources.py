@@ -5,7 +5,7 @@
 # cli.username=admin
 # cli.password=password      <- la password se modifica la primera vez que ejecutemos el cli
 
-# La aplicación la cargamos utilizando xl apply -f app.yaml
+# La aplicación la cargamos utilizando xl apply -f app-ecs.yaml
 
 # Las claves para acceder a AWS se reciben por parámetro
 import sys
