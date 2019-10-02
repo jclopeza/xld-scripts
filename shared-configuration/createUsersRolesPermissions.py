@@ -20,14 +20,16 @@ def createUsers():
     security.createUser('mvega', 'mvega')
     security.createUser('ycobo', 'ycobo')
     security.createUser('jsalguero', 'jsalguero')
+    security.createUser('isanchez', 'isanchez')
+    security.createUser('agiraldo', 'agiraldo')
 
 # Agrupación de usuarios en listas para facilitar la asignación de roles
 calculatorDev = ['ahortal', 'jmurcia']
 calculatorPre = ['csantamaria', 'mvega']
 calculatorPro = ['jclopez', 'ycobo']
 tutorialDev = ['antonio', 'jsalguero']
-tutorialPre = ['vsalguero']
-tutorialPro = ['amateos']
+tutorialPre = ['vsalguero', 'isanchez']
+tutorialPro = ['amateos', 'agiraldo']
 votingAppDev = ['cvalero']
 votingAppPre = ['jccobo']
 votingAppPro = ['ahartman']
