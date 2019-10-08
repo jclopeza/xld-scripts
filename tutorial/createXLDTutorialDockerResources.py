@@ -19,15 +19,17 @@ def createResource(name, type, props):
         print("CI {0} existed".format(name))
 
 def createOrUpdateDictionary(env):
+    dictEntries = {
+        'env': env
+    }
     dictionaryName = "Environments/dictionaries-tutorial-docker/dictionary-application-tutorial-docker-{0}".format(env)
     if not repository.exists(dictionaryName):
-        myDict = factory.configurationItem(dictionaryName, 'udm.Dictionary', {})
+        myDict = factory.configurationItem(dictionaryName, 'udm.Dictionary', {'entries': dictEntries})
         repository.create(myDict)
         print("Dictionary {0} created".format(dictionaryName))
     else:
         myDict = repository.read(dictionaryName)
-        # Por ahora no necesitamos dictEntries
-        # myDict.entries = dictEntries
+        myDict.entries = dictEntries
         repository.update(myDict)
         print("Dictionary {0} updated".format(dictionaryName))
 
