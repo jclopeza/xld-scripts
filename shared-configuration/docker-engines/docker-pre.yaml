@@ -4,7 +4,7 @@ kind: Infrastructure
 spec:
 - name: Infrastructure/DockerEngines/docker-pre
   type: docker.Engine
-  dockerHost: https://192.168.99.101:2376
+  dockerHost: https://192.168.99.104:2376
   enableTLS: true
   certPem: |-
     -----BEGIN CERTIFICATE-----
@@ -72,4 +72,4 @@ spec:
     OdoAl0+9t2ecFoH8g7ks89JA54Wv4RKs+0Eb+fklbNtMPgN3HnE=
     -----END RSA PRIVATE KEY-----
   registries:
-  - Configuration/lyhsoft-registry
+  - Configuration/DockerRegistries/lyhsoft-registry

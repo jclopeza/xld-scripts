@@ -104,7 +104,8 @@ dockerRegistryProperties = {
     'username': 'admin',
     'password': 'admin123'
     }
-createResource("Configuration/lyhsoft-registry", "docker.Registry", dockerRegistryProperties)
+createResource("Configuration/DockerRegistries", "core.Directory", None)
+createResource("Configuration/DockerRegistries/lyhsoft-registry", "docker.Registry", dockerRegistryProperties)
 
 # Creamos directorio para Docker Engines
 createResource("Infrastructure/DockerEngines", "core.Directory", None)
