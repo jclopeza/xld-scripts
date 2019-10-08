@@ -97,3 +97,17 @@ def createTriggers(env):
 createTriggers('dev')
 createTriggers('pre')
 createTriggers('pro')
+
+# Creamos el registry privado en Nexus3 para Docker
+dockerRegistryProperties = {
+    'url': 'http://lyhsoft-registry:8084',
+    'username': 'admin',
+    'password': 'admin123'
+    }
+createResource("Configuration/lyhsoft-registry", "docker.Registry", dockerRegistryProperties)
+
+# Creamos directorio para Docker Engines
+createResource("Infrastructure/DockerEngines", "core.Directory", None)
+
+# Para crear los DockerEngines utilizamos los ficheros yaml del directorio docker-engines
+# Nos damos cuenta que en esos DockerEngines hemos asociado el registro docker que hemos creado

@@ -52,7 +52,8 @@ def createOrUpdateEnvironment(env):
         "Infrastructure/UnixHosts/calculator-{0}/axis2".format(env),
         "Infrastructure/UnixHosts/calculator-{0}/tomcat/virutal-host-calculator".format(env),
         "Infrastructure/UnixHosts/calculator-{0}/smokeTest".format(env),
-        "Infrastructure/UnixHosts/calculator-{0}/mysql-cli".format(env)
+        "Infrastructure/UnixHosts/calculator-{0}/mysql-cli".format(env),
+        "Infrastructure/UnixHosts/calculator-{0}/apache2-server".format(env)
     ]
     # Calculamos los triggers
     if env == "dev":
@@ -118,6 +119,17 @@ bddProps = {
 createResource("Infrastructure/UnixHosts/calculator-dev/mysql-cli", "sql.MySqlClient", bddProps)
 createResource("Infrastructure/UnixHosts/calculator-pre/mysql-cli", "sql.MySqlClient", bddProps)
 createResource("Infrastructure/UnixHosts/calculator-pro/mysql-cli", "sql.MySqlClient", bddProps)
+apacheServerProps = {
+    'startCommand': 'sudo service apache2 start',
+    'stopCommand': 'sudo service apache2 stop',
+    'restartCommand': 'sudo service apache2 restart',
+    'defaultDocumentRoot': '/var/www',
+    'configurationFragmentDirectory': '/etc/apache2/sites-enabled'
+}
+createResource("Infrastructure/UnixHosts/calculator-dev/apache2-server", "www.ApacheHttpdServer", apacheServerProps)
+createResource("Infrastructure/UnixHosts/calculator-pre/apache2-server", "www.ApacheHttpdServer", apacheServerProps)
+createResource("Infrastructure/UnixHosts/calculator-pro/apache2-server", "www.ApacheHttpdServer", apacheServerProps)
+
 
 # |  _ \(_) ___| |_(_) ___  _ __   __ _ _ __(_) ___  ___ 
 # | | | | |/ __| __| |/ _ \| '_ \ / _` | '__| |/ _ \/ __|
