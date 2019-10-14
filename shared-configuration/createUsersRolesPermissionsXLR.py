@@ -209,5 +209,6 @@ def loadRoles():
                 }
                 response = callXLR(url, data)
 
-loadRoles()
+# loadRoles() No cargamos los roles porque éstos se cargan a nivel general y no los necesitamos por ahora
+# Lo que sí vamos a cargar son los teams por cada carpeta empezando por la de Terraform.
 loadUsers()
