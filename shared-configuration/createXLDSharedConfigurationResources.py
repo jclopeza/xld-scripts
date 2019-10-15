@@ -112,3 +112,9 @@ createResource("Infrastructure/DockerEngines", "core.Directory", None)
 
 # Para crear los DockerEngines utilizamos los ficheros yaml del directorio docker-engines
 # Nos damos cuenta que en esos DockerEngines hemos asociado el registro docker que hemos creado
+
+# Creamos una entrada para LocalHost bajo UnixHosts
+createResource("Infrastructure/UnixHosts", "core.Directory", None)
+createResource("Infrastructure/UnixHosts/localhost", "overthere.LocalHost", {'os': 'UNIX'})
+# Creamos una entrada chef-solo para testing
+createResource("Infrastructure/UnixHosts/localhost/chef", "chef.Solo", {'chefPath': '/usr/bin'})
