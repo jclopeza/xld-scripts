@@ -116,5 +116,6 @@ createResource("Infrastructure/DockerEngines", "core.Directory", None)
 # Creamos una entrada para LocalHost bajo UnixHosts
 createResource("Infrastructure/UnixHosts", "core.Directory", None)
 createResource("Infrastructure/UnixHosts/localhost", "overthere.LocalHost", {'os': 'UNIX'})
-# Creamos una entrada chef-solo para testing
-createResource("Infrastructure/UnixHosts/localhost/chef", "chef.Solo", {'chefPath': '/usr/bin'})
+# Creamos una entrada chef-solo para testing.
+# No creamos estructura para chef porque no es necesario. El plugin no funciona muy bien.
+# createResource("Infrastructure/UnixHosts/localhost/chef", "chef.Solo", {'chefPath': '/usr/bin'})
