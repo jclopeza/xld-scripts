@@ -75,3 +75,8 @@ def grantPermissionsApplication(application, applicationUsersDEV, applicationUse
 # grantPermissionsApplication("calculator", calculatorDev, calculatorPre, calculatorPro)
 # grantPermissionsApplication("tutorial", tutorialDev, tutorialPre, tutorialPro)
 # grantPermissionsApplication("voting-app", votingAppDev, votingAppPre, votingAppPro)
+# grantPermissionsApplication("moby-counter", [], [], [])
+# grantPermissionsApplication("petportal", [], [], [])
+# grantPermissionsApplication("remedy-stub-docker", [], [], [])
+# grantPermissionsApplication("moby-counter", [], [], [])
+# grantPermissionsApplication("voting-app-docker", [], [], [])
