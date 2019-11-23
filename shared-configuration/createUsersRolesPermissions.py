@@ -80,3 +80,7 @@ def grantPermissionsApplication(application, applicationUsersDEV, applicationUse
 # grantPermissionsApplication("remedy-stub-docker", [], [], [])
 # grantPermissionsApplication("moby-counter", [], [], [])
 # grantPermissionsApplication("voting-app-docker", [], [], [])
+# grantPermissionsApplication("calculator-app-k8s", [], [], [])
+# grantPermissionsApplication("istio-k8s", [], [], [])
+# grantPermissionsApplication("tutorial-app-k8s", [], [], [])
+# grantPermissionsApplication("voting-app-k8s", [], [], [])
