@@ -32,7 +32,7 @@ users = [
         "data": {
             "fullName": "Alfredo Giraldo",
             "password": "agiraldo",
-            "email": "agiraldo@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -42,7 +42,7 @@ users = [
         "data": {
             "fullName": "Alberto Hartman",
             "password": "ahartman",
-            "email": "ahartman@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -52,7 +52,7 @@ users = [
         "data": {
             "fullName": "Azucena Hortal Quirante",
             "password": "ahortalq",
-            "email": "ahortalq@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -62,7 +62,7 @@ users = [
         "data": {
             "fullName": "Alberto Mateos",
             "password": "amateos",
-            "email": "amateos@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -72,7 +72,7 @@ users = [
         "data": {
             "fullName": "Antonio Psicólogo",
             "password": "antonio",
-            "email": "antonio@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -82,7 +82,7 @@ users = [
         "data": {
             "fullName": "Rosario Santamaría Cervantes",
             "password": "charo",
-            "email": "charo@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -92,7 +92,7 @@ users = [
         "data": {
             "fullName": "Carmen Valero",
             "password": "cvalero",
-            "email": "cvalero@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -102,7 +102,7 @@ users = [
         "data": {
             "fullName": "Inmaculada Sáncez",
             "password": "isanchez",
-            "email": "isanchez@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -112,7 +112,7 @@ users = [
         "data": {
             "fullName": "Juan Carlos Cobo",
             "password": "jccobo",
-            "email": "jccobo@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -122,7 +122,7 @@ users = [
         "data": {
             "fullName": "José Carlos",
             "password": "jcla",
-            "email": "jcla@gmail.com",
+            "email": "jclopez@xebialabs.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -132,7 +132,7 @@ users = [
         "data": {
             "fullName": "Juan Murcia",
             "password": "jmurcia",
-            "email": "jmurcia@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -142,7 +142,7 @@ users = [
         "data": {
             "fullName": "Juan Salguero",
             "password": "jsalguero",
-            "email": "jsalguero@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -152,7 +152,7 @@ users = [
         "data": {
             "fullName": "Maria Vega",
             "password": "mvega",
-            "email": "mvega@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -162,7 +162,7 @@ users = [
         "data": {
             "fullName": "Vanesa Salguero",
             "password": "vsalguero",
-            "email": "vsalguero@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
@@ -172,7 +172,7 @@ users = [
         "data": {
             "fullName": "Yolanda Cobo",
             "password": "ycobo",
-            "email": "ycobo@gmail.com",
+            "email": "lyhsoftcompany@gmail.com",
             "loginAllowed": True,
             "firstDayOfWeek": 1
         }
