@@ -84,3 +84,4 @@ def grantPermissionsApplication(application, applicationUsersDEV, applicationUse
 # grantPermissionsApplication("istio-k8s", [], [], [])
 # grantPermissionsApplication("tutorial-app-k8s", [], [], [])
 # grantPermissionsApplication("voting-app-k8s", [], [], [])
+# grantPermissionsApplication("istio-k8s", [], [], [])
