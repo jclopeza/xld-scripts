@@ -33,6 +33,9 @@ tutorialPro = ['amateos', 'agiraldo']
 votingAppDev = ['cvalero']
 votingAppPre = ['jccobo']
 votingAppPro = ['ahartman']
+votingAppK8sDev = ['csantamaria']
+votingAppK8sPre = ['ahortal']
+votingAppK8sPro = ['jclopez']
 
 # Establecemos los permisos
 def grantPermissionsApplication(application, applicationUsersDEV, applicationUsersPRE, applicationUsersPRO):
@@ -83,5 +86,5 @@ def grantPermissionsApplication(application, applicationUsersDEV, applicationUse
 # grantPermissionsApplication("calculator-app-k8s", [], [], [])
 # grantPermissionsApplication("istio-k8s", [], [], [])
 # grantPermissionsApplication("tutorial-app-k8s", [], [], [])
-# grantPermissionsApplication("voting-app-k8s", [], [], [])
+# grantPermissionsApplication("voting-app-k8s", votingAppK8sDev, votingAppK8sPre, votingAppK8sPro)
 # grantPermissionsApplication("istio-k8s", [], [], [])
