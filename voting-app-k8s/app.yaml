@@ -4,8 +4,6 @@ kind: Applications
 spec:
 - name: Applications/Applications
   type: core.Directory
-- name: Applications/Applications/application-voting-app-k8s
-  type: core.Directory
 - directory: Applications/Applications/application-voting-app-k8s
   children:
   - name: deployment-db
