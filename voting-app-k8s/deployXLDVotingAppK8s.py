@@ -8,7 +8,7 @@
 
 def deployVotingApp(environment):
     # Load package
-    package = repository.read("Applications/Applications/application-voting-app-k8s/deployment-vote/32.0.0-B49")
+    package = repository.read("Applications/Applications/application-voting-app-k8s/deployment-vote/34.0.0-B65")
     # Load environment
     environment = repository.read("Environments/application-voting-app-k8s/application-voting-app-k8s-{0}/application-voting-app-k8s-{0}".format(environment))
     # Start deployment

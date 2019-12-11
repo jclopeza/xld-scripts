@@ -75,7 +75,7 @@ def grantPermissionsApplication(application, applicationUsersDEV, applicationUse
         security.grant("repo#edit", rol, ["Environments/dictionaries-{0}".format(application)])
 
 # Como conceder los permisos
-grantPermissionsApplication("calculator", calculatorDev, calculatorPre, calculatorPro)
+# grantPermissionsApplication("calculator", calculatorDev, calculatorPre, calculatorPro)
 # grantPermissionsApplication("tutorial", tutorialDev, tutorialPre, tutorialPro)
 # grantPermissionsApplication("voting-app", votingAppDev, votingAppPre, votingAppPro)
 # grantPermissionsApplication("moby-counter", [], [], [])
@@ -86,5 +86,5 @@ grantPermissionsApplication("calculator", calculatorDev, calculatorPre, calculat
 # grantPermissionsApplication("calculator-app-k8s", [], [], [])
 # grantPermissionsApplication("istio-k8s", [], [], [])
 # grantPermissionsApplication("tutorial-app-k8s", [], [], [])
-# grantPermissionsApplication("voting-app-k8s", votingAppK8sDev, votingAppK8sPre, votingAppK8sPro)
+grantPermissionsApplication("voting-app-k8s", [], [], [])
 # grantPermissionsApplication("istio-k8s", [], [], [])
